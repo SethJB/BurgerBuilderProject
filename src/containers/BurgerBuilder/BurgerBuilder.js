@@ -10,20 +10,29 @@ const INGREDIENT_PRICE = {
     meat: 1.3,
     bacon: 0.7
 }
-
+const defaultIngredients = {
+    salad: 0,
+    crabbysalad: 0,
+    bacon: 0,
+    cheese: 0,
+    crabbycheese: 0,
+    crabbypatty: 0,
+    meat: 0, 
+    swisscheese: 0
+};
 class BurgerBuilder extends Component{
     state = {
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0 
-
-        },
-        totalPrice: 4
+        ingredients: defaultIngredients,
+        totalPrice: 4,
+        typeBurger: 'regular'
 
     }
-
+    handleChange(event) {
+        this.setState({typeBurger: event.target.value});
+      }
+    selectTypeOfBurger = (type) => {
+        this.setState({typeBurger: type, ingredients: defaultIngredients, totalPrice: 4});        
+    };
     addIngredientHandler = (type) => {
         const oldCount = this.state.ingredients[type];
         const updatedCount = oldCount + 1;
@@ -42,13 +51,16 @@ class BurgerBuilder extends Component{
     removeIngredientHandler = (type) => {
 
     };
-
+    
     render(){
         return (
             <Aux>
-                <Burger ingredients={this.state.ingredients}/> 
+                <Burger ingredients={this.state.ingredients} typeBurger={this.state.typeBurger}/> 
                  <BuildControls
                     ingredientAdded={this.addIngredientHandler}
+                    typeOfBurger={this.selectTypeOfBurger}
+                    typeBurger={this.state.typeBurger}
+                    handleTypeChange={this.handleChange}
                  /> 
             </Aux>
         );

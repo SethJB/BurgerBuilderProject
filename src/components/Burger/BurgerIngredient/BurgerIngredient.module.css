@@ -101,7 +101,7 @@
   background: linear-gradient(#7f3608, green);
 }
 
-.Cheese {
+.Cheese, .CrabbyCheese {
     width: 90%;
     height: 4.5%;
     margin: 2% auto;
@@ -109,14 +109,19 @@
     border-radius: 20px;
 }
 
-.Salad {
+.CrabbyCheese {
+  background: linear-gradient(#6c9de6, 	#000099);
+}
+.Salad, .CrabbySalad {
     width: 85%;
     height: 7%;
     margin: 2% auto;
     background: linear-gradient(#228c1d, #91ce50);
     border-radius: 20px;
 }
-
+.CrabbySalad {
+  background: linear-gradient(tan, #91ce50);
+}
 .Bacon {
     width: 80%;
     height: 3%;
