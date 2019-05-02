@@ -12,6 +12,9 @@ class BurgerIngredient extends Component {
                     ingredient = <div className={classes.BreadBottom}></div>
                     break;
 
+                case ('bread-bottom-black'):
+                    ingredient = <div className={classes.BreadBottomBlack}></div>
+                break;
                 case ('bread-top'):
                     ingredient = (
                         <div className={classes.BreadTop}>
@@ -19,21 +22,40 @@ class BurgerIngredient extends Component {
                             <div className={classes.Seeds2}></div>
                         </div>
                     );
+
                     break;
-                    case ('meat'):
-                        ingredient = <div className={classes.Meat}></div>
+                case ('bread-top-black'):
+                    ingredient = (
+                        <div className={classes.BreadTopBlack}>
+                            <div className={classes.Seeds1}></div>
+                            <div className={classes.Seeds2}></div>
+                        </div>
+                    );
                     break;
-                    case ('cheese'):
-                        ingredient = <div className={classes.Cheese}></div>
-                    break;
-                    case ('bacon'):
-                        ingredient = <div className={classes.Bacon}></div>
-                    break;
-                    case ('salad'):
-                        ingredient = <div className={classes.Salad}></div>
-                    break;
-                default:
-                ingredient = null;
+                case ('meat'):
+                    ingredient = <div className={classes.Meat}></div>
+                break;
+                case ('crabbypatty'):
+                    ingredient = <div className={classes.CrabbyPatty}></div>
+                break;
+                case ('cheese'):
+                    ingredient = <div className={classes.Cheese}></div>
+                break;
+                case ('swiss-cheese'):
+                    ingredient = (
+                        <div className={classes.Cheese}>
+                            <div className={classes.Seeds1}></div>
+                        </div>
+                );
+                break;
+                case ('bacon'):
+                    ingredient = <div className={classes.Bacon}></div>
+                break;
+                case ('salad'):
+                    ingredient = <div className={classes.Salad}></div>
+                break;
+            default:
+            ingredient = null;
             }
         return ingredient;     
         }
