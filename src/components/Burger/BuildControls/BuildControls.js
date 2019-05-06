@@ -14,8 +14,9 @@ const buildControls = (props) => {
     switch (props.typeBurger) {
         case 'crabbypatty':
             controls = [
+                {label: 'Pickle', type: 'crabbypickle'},
                 {label: 'Salad', type: 'crabbysalad'},
-                {label: 'Bacon', type: 'bacon'},
+                {label: 'Bacon', type: 'crabbybacon'},
                 {label: 'Cheese', type: 'crabbycheese'},
                 {label: 'Patty', type: 'crabbypatty'},
             ];
@@ -23,10 +24,12 @@ const buildControls = (props) => {
     
         default:
         controls = [
+            {label: 'Pickle', type: 'pickle'},
             {label: 'Salad', type: 'salad'},
             {label: 'Bacon', type: 'bacon'},
             {label: 'Cheese', type: 'cheese'},
             {label: 'Meat', type: 'meat'},
+          
             ];
             break;
     }
@@ -46,14 +49,23 @@ const buildControls = (props) => {
                     />
                 ))}
                 </div>
+                <p>Current Price: <strong>{props.price.toFixed(2)}</strong> </p>
                 {controls.map(ctrl => (
                         <BuildControl
                             key={ctrl.label} 
                             label={ctrl.label} 
                             value={ctrl.type}
                             added={() => props.ingredientAdded(ctrl.type)}
+                            removed={() => props.ingredientRemove(ctrl.type)}
+                            disabled={props.disabled[ctrl.type]}
                         />
                 ))}
+               <button 
+                    className={classes.OrderButton}
+                    disabled={!props.purchasable}
+                    onClick={props.ordered}>
+                    ORDER NOW
+                </button> 
         </div>
    )
    };

@@ -7,7 +7,7 @@ const selectType = (props) => (
         <label className={classes.Label}>{props.label}</label>
         <input 
             type='radio' 
-            id={props.name.concat('_radio')}
+            id={`${props.name}_radio`}
             onChange={props.handleChangeType}
             checked={props.typeBurgerCheck === props.name} 
             onClick={props.changeType}
