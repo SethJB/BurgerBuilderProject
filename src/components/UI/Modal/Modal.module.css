@@ -14,7 +14,8 @@
     transform: rotate(90);
 }
 .Modal:hover {
-    background-color: rgb(203, 232, 250);
+    border: 20px solid rgb(248, 41, 5);
+    border-style: double;
     transform-box: view-box;
 }
 
