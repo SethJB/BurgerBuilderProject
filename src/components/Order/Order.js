@@ -15,7 +15,7 @@ const order = (props) => {
 
     const ingredientOutput = ingredients.map(ig => {
         if(ig.amount !== 0){
-            return <span style={{textTransform: 'capitalize'}}className={classes.OrderDisplay} >{ig.name} ({ig.amount}) </span>;
+            return <div><span style={{textTransform: 'capitalize'}}className={classes.OrderDisplay} >{ig.name} ({ig.amount}) </span></div>;
         }
         return null
     })
