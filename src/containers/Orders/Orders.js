@@ -16,21 +16,21 @@ class Orders extends Component {
     componentDidMount() {
 
         this.props.onFetchOrders();
-        // axios.get('/orders.json')
-        //     .then(res => {
-        //         const fetchOrders = [];
-        //         for(let key in res.data){
-        //             fetchOrders.push({
-        //                 ...res.data[key],
-        //                 id: key
-        //             });
-        //         }
-        //         console.log('Fetch Orders',fetchOrders);
-        //         this.setState({loading: false, orders: fetchOrders});
-        //     })
-        //     .catch(err => {
-        //         this.setState({loading: false});    
-        //     });
+        axios.get('/orders.json')
+            .then(res => {
+                const fetchOrders = [];
+                for(let key in res.data){
+                    fetchOrders.push({
+                        ...res.data[key],
+                        id: key
+                    });
+                }
+                console.log('Fetch Orders',fetchOrders);
+                this.setState({loading: false, orders: fetchOrders});
+            })
+            .catch(err => {
+                this.setState({loading: false});    
+            });
     }
 
     render () {
